@@ -12,7 +12,7 @@ To create a Node.js Telegram bot that behaves as you described, you can use the 
    - Install [Node.js](https://nodejs.org/en) on your device. 
    - Set up a Node.js project repo if you haven't already.
    - add an `index.js` main file.
-   - set package.json file to set dependencies.
+   - set `package.json` file to set dependencies.
    
    ```bash
    npm init
@@ -56,7 +56,7 @@ To create a Node.js Telegram bot that behaves as you described, you can use the 
    OWNER_USER_ID = 123456789 // Your UserId 
    ```
 
-   To get UserId You Can Google About It Like How A TG User Can Get To Know Their User Id.
+   To get `UserId` You Can `Google` About It Like How A TG User Can Get To Know Their User Id.
 
 7. **Run Your Bot:**
 
