@@ -48,7 +48,7 @@ To create a Node.js Telegram bot that behaves as you described, you can use the 
    
    const bot = new TelegramBot(token, { polling: true });
 
-   // Your Code Main Functionality 
+   // Your Main Functionality 
    ```
    
    In Main `.env` File
