@@ -28,7 +28,7 @@ To create a Node.js Telegram bot that behaves as you described, you can use the 
    ```
    
    Optional Installation
-   - Install the [`dotenv`](https://www.npmjs.com/package/dotenv) environmenr variable package for Telegram Bot Token and Owner UserID.
+   - Install the [`dotenv`](https://www.npmjs.com/package/dotenv) environment variable package for Bot Token and Owner UserID.
 
    ```bash
    npm install dotenv
