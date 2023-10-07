@@ -1,4 +1,4 @@
-# Anonymous-Tg-Bot
+# Anonymous-Tg-Chat-Bot
 To create a Node.js Telegram bot that behaves as you described, you can use the [`node-telegram-bot-api`](https://www.npmjs.com/package/node-telegram-bot-api) library and manage conversations using a state machine approach. Here's a step-by-step guide on how to create such a bot:
 
 1. **Set Up Your Telegram Bot:**
