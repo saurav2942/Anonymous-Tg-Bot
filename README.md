@@ -1,5 +1,5 @@
 # Anonymous-Tg-Bot
-To create a Node.js Telegram bot that behaves as you described, you can use the `node-telegram-bot-api`[reference](https://www.npmjs.com/package/node-telegram-bot-api) library and manage conversations using a state machine approach. Here's a step-by-step guide on how to create such a bot:
+To create a Node.js Telegram bot that behaves as you described, you can use the [`node-telegram-bot-api`](https://www.npmjs.com/package/node-telegram-bot-api) library and manage conversations using a state machine approach. Here's a step-by-step guide on how to create such a bot:
 
 1. **Set Up Your Telegram Bot:**
 
@@ -28,7 +28,7 @@ To create a Node.js Telegram bot that behaves as you described, you can use the 
    ```
    
    Optional Installation
-   - Install the `dotenv`[reference](https://www.npmjs.com/package/dotenv) environmenr variable package for Telegram Bot Token and Owner UserID.
+   - Install the [`dotenv`](https://www.npmjs.com/package/dotenv) environmenr variable package for Telegram Bot Token and Owner UserID.
 
    ```bash
    npm install dotenv
