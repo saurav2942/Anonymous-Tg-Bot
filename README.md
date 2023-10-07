@@ -62,7 +62,7 @@ To create a Node.js Telegram bot that behaves as you described, you can use the 
 
 7. **Run Your Bot:**
 
-   Start your Node.js application to run the bot.
+   Start your Node.js application in terminal to run the bot.
 
    ```bash
    node index.js
