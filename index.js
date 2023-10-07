@@ -24,7 +24,7 @@ bot.onText(/\/start/, (msg) => {
       );
       bot.sendMessage(
         chatId,
-        `Invalid Command\n\nYou Are Already In Between A Conversation with user ${conversations[chatId].userIdToMessage}`
+        `Invalid Command\n\nYou Are Already In Between A Conversation with user`
       );
     } else {
       // User using this command in b/w a conversation
@@ -39,7 +39,7 @@ bot.onText(/\/start/, (msg) => {
     if (userId == ownerUserId) {
       fl = true;
       console.log(`\n<\nYou Started A New Conversation\n>\n`);
-      console.log("Start", conversations);
+      // console.log("Start", conversations);
       // Check if the owner is starting a new conversation
       conversations[ownerUserId] = { state: "awaitingUserId" };
       bot.sendMessage(
@@ -49,9 +49,7 @@ bot.onText(/\/start/, (msg) => {
     } else {
       // User starting a conversation
       bot.sendMessage(userId, `Invalid Command\nOnly The Owner Can Use It`);
-      console.log(
-        `\n<\nUser trying to start a new conversation\n\nUser Details As Follows\nUsername - ${userName} \n\nUserID - ${userId} \n\n Full Name - ${userFullName}\n>\n`
-      );
+      console.log(`\n<\nUser trying to start a new conversation\n>\n`);
     }
   }
 });
@@ -67,22 +65,26 @@ bot.on("message", (msg) => {
   if (text !== "/start" && text !== "/end" && fl) {
     const state = conversations[ownerUserId].state;
     if (state == "awaitingUserId") {
+      // If The Given Id Is Wrong.
+      if (text.length != 10) {
+        console.log(`\n<\nUser Not Found!\n>\n`);
+        bot.sendMessage(
+          ownerUserId,
+          `User Not Found!\nPlease Enter Correct User Id`
+        );
+        return;
+      }
       // Owner provides the user ID to send a message to
       //{owner : {state, userid}}
       conversations[ownerUserId].userIdToMessage = +text;
       conversations[ownerUserId].state = "awaitingMessage";
-      console.log(
-        `\n<\nDefault message sent to user:- ${conversations[ownerUserId].userIdToMessage}\n>\n`
-      );
-      console.log("Default Msg", conversations);
+      console.log(`\n<\nDefault message sent to user\n>\n`);
+      // console.log("Default Msg", conversations);
       bot.sendMessage(
         conversations[ownerUserId].userIdToMessage,
-        "This Message Is From @CourseH_bot And It's Owner Regarding Your Query\n\nPlease enter the message you want to send:"
+        "This Message Is From @Anonymous_Chat_Bot And It's Owner Regarding Your Query\n\nPlease enter the message you want to send:"
       );
-      bot.sendMessage(
-        ownerUserId,
-        `Default message sent to user:- ${conversations[ownerUserId].userIdToMessage}`
-      );
+      bot.sendMessage(ownerUserId, `Bot - Default message sent to user`);
     } else {
       // Send messages between owner and user
       const recipientId =
@@ -92,26 +94,20 @@ bot.on("message", (msg) => {
 
       if (recipientId == ownerUserId)
         console.log("\n<\nuser has sent a message to owner\n>\n");
-      else
-        console.log(
-          `\n<\nowner has sent a message to user:- ${conversations[ownerUserId].userIdToMessage}\n>\n`
-        );
+      else console.log(`\n<\nowner has sent a message to user\n>\n`);
 
-      console.log("Normal Msg", conversations);
+      // console.log("Normal Msg", conversations);
 
       // user sending text
       if (userId != ownerUserId) {
-        bot.sendMessage(
-          recipientId,
-          `User Has Sent A Message :-\n\nUser Details As Follows :-\nUsername - ${userName} \n\nUserID - ${userId} \n\n Full Name - ${userFullName}\n\nMessage :- ${text}`
-        );
-        bot.sendMessage(
-          userId,
-          `Your Message Has Sent To The Owner!\n He Will Reply In Some Time`
-        );
+        bot.sendMessage(recipientId, `${text}\n`);
+        // bot.sendMessage(
+        //   userId,
+        //   `Your Message Has Sent To The Owner!\n He Will Reply In Some Time`
+        // );
       } else {
-        bot.sendMessage(recipientId, `Owner Has Sent A Message: \n${text}`);
-        bot.sendMessage(userId, `Your Message Has Sent To The User!`);
+        bot.sendMessage(recipientId, `${text}`);
+        // bot.sendMessage(userId, `Your Message Has Sent To The User!`);
       }
     }
   }
@@ -130,7 +126,7 @@ bot.onText(/\/end/, (msg) => {
       fl = false;
       // Check if the owner is using this command
       console.log(`\n<\nOwner Has Ended The Conv\n>\n`);
-      console.log("End", conversations);
+      // console.log("End", conversations);
       bot.sendMessage(
         chatId,
         "You Have Ended The Conversion Use Command /start To Start A New Conversion"
